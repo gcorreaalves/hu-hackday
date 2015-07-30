@@ -1,11 +1,12 @@
 <script>
   $(function(){
-    $('.media').on('click', function (e) {
+    $('.media img').on('click', function (e) {
       e.preventDefault();
       var $this = $(e.target).closest('.media');
       var modal_media = $('#media-modal');
       modal_media.find('#modal-city').text($this.find('.city').text());
-      modal_media.find('img').attr('src', $this.find('img').attr('data-image-standard'));
+      modal_media.find('.image').attr('src', $this.find('img').attr('data-image-standard'));
+      modal_media.find('.img-profile').attr('src', $this.find('.img-profile').attr('src'));
       modal_media.find('.username').text($this.find('.username').text());
       modal_media.modal('show');
     });
@@ -31,9 +32,9 @@
             </div>
           </div>
         </div>
-        <div class="username">
+        <div class="user">
           <%= image_tag(item['user']['profile_picture'], class: 'img-profile') %>
-          <%= item['user']['username'] %>
+          <span class="username"><%= item['user']['username'] %></span>
         </div>
       </div>
     </div>
@@ -45,13 +46,24 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="modal-city">
-
-        </h4>
+        <h4 class="modal-title" id="modal-city"></h4>
       </div>
       <div class="modal-body">
-        <img src="" alt="">
-        <p class="username"></p>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="user">
+              <img src="" alt="" class="img-profile">
+              <span class="username"></span>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="actions text-right">
+              <%= link_to "", media_path, method: :post, remote: true, class: 'icon-heart-o' %>
+              <%= link_to "", "#", class: 'icon-trash-o' %>
+            </div>
+          </div>
+        </div>
+        <img src="" alt="" class="image">
       </div>
     </div>
   </div>
