@@ -8,8 +8,8 @@ class Media < ActiveRecord::Migration
       t.string  :url_thumb, null: false
       t.string  :url_standard, null: false
       
-      t.integer :longitute, null: false
-      t.integer :latitude, null: false
+      t.string :longitute, null: false
+      t.string :latitude, null: false
       t.string  :city, null: false
 
       t.datetime :created_at_ig, null: false
