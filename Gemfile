@@ -16,6 +16,7 @@ gem 'sendgrid'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'letter_opener', group: :development
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'
