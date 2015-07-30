@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'letter_opener', group: :development
 gem 'devise'
+gem 'devise-bootstrap-views'
 
 group :development, :test do
   gem 'byebug'

@@ -84,6 +84,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-bootstrap-views (0.0.5)
     diff-lcs (1.2.5)
     dotenv (2.0.2)
     erubis (2.7.0)
@@ -327,6 +328,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_cleaner
   devise
+  devise-bootstrap-views
   dotenv
   factory_girl_rails
   faker
