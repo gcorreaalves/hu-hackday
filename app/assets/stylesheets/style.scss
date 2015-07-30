@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'hu-icons';
-	src:url('hu-icons.eot?-mngcxb');
-	src:url('hu-icons.eot?#iefix-mngcxb') format('embedded-opentype'),
-		url('hu-icons.ttf?-mngcxb') format('truetype'),
-		url('hu-icons.woff?-mngcxb') format('woff'),
-		url('hu-icons.svg?-mngcxb#hu-icons') format('svg');
+	src:font-url('hu-icons.eot?-mngcxb');
+	src:font-url('hu-icons.eot?#iefix-mngcxb') format('embedded-opentype'),
+	font-url('hu-icons.ttf?-mngcxb') format('truetype'),
+	font-url('hu-icons.woff?-mngcxb') format('woff'),
+	font-url('hu-icons.svg?-mngcxb#hu-icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }

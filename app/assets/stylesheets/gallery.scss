@@ -56,3 +56,15 @@
     }
   }
 }
+.modal{
+  .modal-dialog{
+    height: 460px;
+    width: 450px;
+  }
+  .modal-header{
+    border: none;
+  }
+  .modal-content{
+    border-radius: 4px;
+  }
+}

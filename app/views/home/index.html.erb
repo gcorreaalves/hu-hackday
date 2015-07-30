@@ -2,9 +2,10 @@
   $(function(){
     $('.media').on('click', function (e) {
       e.preventDefault();
-      var $this = $(e.target).closest('.open-media');
+      var $this = $(e.target).closest('.media');
       var modal_media = $('#media-modal');
-      modal_media.find('img').attr('src', $this.find('img').attr('src'));
+      modal_media.find('#modal-city').text($this.find('.city').text());
+      modal_media.find('img').attr('src', $this.find('img').attr('data-image-standard'));
       modal_media.find('.username').text($this.find('.username').text());
       modal_media.modal('show');
     });
@@ -19,7 +20,8 @@
           #cidade
         </div>
         <div class="image">
-          <%= image_tag(item['images']['thumbnail']['url'], class: 'img-thumbnail') %>
+          <%= image_tag(item['images']['thumbnail']['url'], class: 'img-thumbnail',
+          :'data-image-standard'=> item['images']['standard_resolution']['url']) %>
           <div class="actions row">
             <div class="col-sm-6 text-left">
               <%= link_to "", "#", class: 'icon-heart-o' %>
@@ -43,7 +45,9 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="modal-city">
+
+        </h4>
       </div>
       <div class="modal-body">
         <img src="" alt="">
