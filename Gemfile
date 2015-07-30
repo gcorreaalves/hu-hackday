@@ -9,18 +9,21 @@ gem 'jbuilder', '~> 2.0'
 gem 'dotenv'
 gem 'instagram'
 gem 'rails_12factor', group: :production
+gem 'responders'
+gem 'bootstrap-sass'
+gem 'pg'
+gem 'sendgrid'
+gem 'simple_form'
+gem 'therubyracer', :platform=>:ruby
 gem 'letter_opener', group: :development
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rails-pry'
 end
-gem 'bootstrap-sass'
-gem 'pg'
-gem 'sendgrid'
-gem 'simple_form'
-gem 'therubyracer', :platform=>:ruby
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
