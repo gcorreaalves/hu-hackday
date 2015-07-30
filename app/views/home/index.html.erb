@@ -1,8 +1,58 @@
-<ul>
-  <% @recent_huhackday.each do |item| %>
-    <li>
-      <%= image_tag(item['images']['thumbnail']['url'], class: 'img-thumbnail') %>
-    </li>
-  <% end %>
-</ul>
+Hello Hackday
 
+<br>
+Connect path: <a href="<%= connect_oauth_index_url %>"> Click me </a>
+<br>
+Instagram Access Token: <%= session[:access_token] %>
+<br>
+
+<script>
+  $(function(){
+    $('.open-media').on('click', function (e) {
+      e.preventDefault();
+      var $this = $(e.target).closest('.open-media');
+      var modal_media = $('#media-modal');
+      modal_media.find('img').attr('src', $this.find('img').attr('src'));
+      modal_media.find('.username').text($this.find('.username').text());
+      modal_media.modal('show');
+    });
+  });
+</script>
+
+<div class="row">
+  <% @recent_huhackday.each do |item| %>
+    <div class="col-sm-3">
+      <div class="open-media">
+        <%= image_tag(item['images']['thumbnail']['url'], class: 'img-thumbnail') %>
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="username">
+              <%= item['user']['username'] %>
+            </p>
+            <p>
+              Cidade
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <%= link_to "favoritar", "#"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="modal fade" id="media-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="">
+        <p class="username"></p>
+      </div>
+    </div>
+  </div>
+</div>
