@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'dotenv'
 gem 'instagram'
 gem 'rails_12factor', group: :production
+gem 'letter_opener', group: :development
 
 group :development, :test do
   gem 'byebug'
