@@ -4,3 +4,13 @@ Hello Hackday
 Connect path: <a href="<%= connect_oauth_index_url %>"> Click me </a>
 <br>
 Instagram Access Token: <%= session[:access_token] %>
+<br>
+
+<ul>
+  <% @recent_huhackday.each do |item| %>
+    <li>
+      <%= image_tag(item['images']['thumbnail']['url'], class: 'img-thumbnail') %>
+    </li>
+  <% end %>
+</ul>
+

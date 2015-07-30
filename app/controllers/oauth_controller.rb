@@ -4,7 +4,7 @@ class OauthController < ApplicationController
   end
 
   def callback
-    response = Instagram.get_access_token(ENV['INSTAGRAM_CLIENT_SECRET'], :redirect_uri => callback_oauth_index_url)
+    response = Instagram.get_access_token(params[:code], :redirect_uri => callback_oauth_index_url)
     session[:access_token] = response.access_token
     redirect_to root_path
   end
