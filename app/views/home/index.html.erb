@@ -6,11 +6,35 @@ Connect path: <a href="<%= connect_oauth_index_url %>"> Click me </a>
 Instagram Access Token: <%= session[:access_token] %>
 <br>
 
-<ul>
-  <% @recent_huhackday.each do |item| %>
-    <li>
-      <%= image_tag(item['images']['thumbnail']['url'], class: 'img-thumbnail') %>
-    </li>
-  <% end %>
-</ul>
+<script>
+  $(function(){
+    $('.open-media').on('click', function (e) {
+      $('#myModal').modal('show');
+      console.log('teste');
+    });
+  });
+</script>
 
+<div class="row">
+  <% @recent_huhackday.each do |item| %>
+    <div class="col-sm-3">
+      <%= link_to "#", class: 'open-media' do %>
+        <%= image_tag(item['images']['thumbnail']['url'], class: 'img-thumbnail') %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+    </div>
+  </div>
+</div>
