@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :media, only: ["create", "destroy"]
+
   root to: 'home#index'
 end
