@@ -1,32 +1,44 @@
-Hello Hackday
-
-<br>
-Connect path: <a href="<%= connect_oauth_index_url %>"> Click me </a>
-<br>
-Instagram Access Token: <%= session[:access_token] %>
-<br>
-
 <script>
   $(function(){
-    $('.open-media').on('click', function (e) {
-      $('#myModal').modal('show');
-      console.log('teste');
+    $('.media').on('click', function (e) {
+      e.preventDefault();
+      var $this = $(e.target).closest('.open-media');
+      var modal_media = $('#media-modal');
+      modal_media.find('img').attr('src', $this.find('img').attr('src'));
+      modal_media.find('.username').text($this.find('.username').text());
+      modal_media.modal('show');
     });
   });
 </script>
 
-<div class="row">
+<div class="gallery row">
   <% @recent_huhackday.each do |item| %>
     <div class="col-sm-3">
-      <%= link_to "#", class: 'open-media' do %>
-        <%= image_tag(item['images']['thumbnail']['url'], class: 'img-thumbnail') %>
-      <% end %>
-      <%= link_to '<3', media_path, method: :post, remote: true %>
+      <div class="media">
+        <div class="city">
+          #cidade
+        </div>
+        <div class="image">
+          <%= image_tag(item['images']['thumbnail']['url'], class: 'img-thumbnail') %>
+          <div class="actions row">
+            <div class="col-sm-6 text-left">
+              <%= link_to "", media_path, method: :post, remote: true, class: 'icon-heart-o' %>
+            </div>
+            <div class="col-sm-6 text-right">
+              <%= link_to "", "#", class: 'icon-trash-o' %>
+            </div>
+          </div>
+        </div>
+        <div class="username">
+          <%= image_tag(item['user']['profile_picture'], class: 'img-profile') %>
+          <%= item['user']['username'] %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="media-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -34,7 +46,8 @@ Instagram Access Token: <%= session[:access_token] %>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-        
+        <img src="" alt="">
+        <p class="username"></p>
       </div>
     </div>
   </div>
