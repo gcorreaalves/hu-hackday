@@ -9,8 +9,12 @@ Instagram Access Token: <%= session[:access_token] %>
 <script>
   $(function(){
     $('.open-media').on('click', function (e) {
-      $('#myModal').modal('show');
-      console.log('teste');
+      e.preventDefault();
+      var $this = $(e.target).closest('.open-media');
+      var modal_media = $('#media-modal');
+      modal_media.find('img').attr('src', $this.find('img').attr('src'));
+      modal_media.find('.username').text($this.find('.username').text());
+      modal_media.modal('show');
     });
   });
 </script>
@@ -18,14 +22,27 @@ Instagram Access Token: <%= session[:access_token] %>
 <div class="row">
   <% @recent_huhackday.each do |item| %>
     <div class="col-sm-3">
-      <%= link_to "#", class: 'open-media' do %>
+      <div class="open-media">
         <%= image_tag(item['images']['thumbnail']['url'], class: 'img-thumbnail') %>
-      <% end %>
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="username">
+              <%= item['user']['username'] %>
+            </p>
+            <p>
+              Cidade
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <%= link_to "favoritar", "#"%>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="media-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -33,7 +50,8 @@ Instagram Access Token: <%= session[:access_token] %>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-        
+        <img src="" alt="">
+        <p class="username"></p>
       </div>
     </div>
   </div>
