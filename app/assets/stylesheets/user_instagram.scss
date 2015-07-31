@@ -1,0 +1,14 @@
+.modal.modal-terms .modal-dialog {
+  height: 90%;
+  overflow: hidden;
+  overflow-y: scroll;
+  width: 50%;
+
+  p {
+    padding: 20px;
+  }
+
+  .modal-footer {
+    text-align: center;
+  }
+}
