@@ -1,6 +1,6 @@
 <div class="gallery row">
   <% @recent_huhackday.each do |item| %>
-    <div class="col-sm-3">
+    <div class="col-sm-3" id="<%= item['id'] %>">
       <div class="media">
         <div class="city">
           <%= city_by_lat_long(item['location']['latitude'], item['location']['longitude']) %>

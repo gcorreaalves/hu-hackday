@@ -18,12 +18,13 @@ class MediaController < ApplicationController
 
     @user = User.where(instagram_username: @media.user_name).first
 
-    # if @success = (@user && @media.save!)
-    #   MainMailer.invite_user(@user.email).deliver_later
-    # end
-    @media.save!
-    @success = true
-
+    if @user && @media.save!
+      MainMailer.invite_user(@user.email, @media.url_standard).deliver_later
+      @success = true
+    else
+      # client.create_media_comment(@media.media_ig_id, "Uhuu! Sua imagem foi selecionada por nós.\nCopie o link abaixo e cole no seu navegador para concorrer!\n\n#{new_user_registration_path}")
+      @success = false
+    end
     render :create
   end
 
