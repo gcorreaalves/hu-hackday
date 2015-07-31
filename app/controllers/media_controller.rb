@@ -15,9 +15,7 @@ class MediaController < ApplicationController
     @media.city = "get city from maps"
     @media.created_at_ig = DateTime.strptime(media_params[:created_time],'%s')
 
-    if @media.save!
-      client.create_media_comment(@media.media_ig_id, "Uhuu! Sua imagem foi selecionada por nós.\nCopie o link abaixo e cole no seu navegador para concorrer!\n\n#{new_user_registration_path}")
-    end
+    @media.save!
   end
 
   private
