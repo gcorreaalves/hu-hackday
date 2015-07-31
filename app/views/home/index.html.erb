@@ -18,7 +18,7 @@
     <div class="col-sm-3">
       <div class="media">
         <div class="city">
-          #cidade
+          <%= city_by_lat_long(item['location']['latitude'], item['location']['longitude']) %>
         </div>
         <div class="image">
           <%= image_tag(item['images']['thumbnail']['url'], class: 'img-thumbnail',

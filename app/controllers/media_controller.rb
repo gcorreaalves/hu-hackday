@@ -12,7 +12,7 @@ class MediaController < ApplicationController
     @media.url_standard = media_params[:images][:standard_resolution][:url]
     @media.longitute = media_params[:location][:longitude]
     @media.latitude = media_params[:location][:latitude]
-    @media.city = "get city from maps"
+    @media.city = GeoLocation.get_city_name(media_params[:location][:latitude], media_params[:location][:longitude])
     @media.created_at_ig = DateTime.strptime(media_params[:created_time],'%s')
 
     @user = User.where(instagram_username: @media.user_name).first
@@ -22,7 +22,6 @@ class MediaController < ApplicationController
     else
       # client.create_media_comment(@media.media_ig_id, "Uhuu! Sua imagem foi selecionada por nós.\nCopie o link abaixo e cole no seu navegador para concorrer!\n\n#{new_user_registration_path}")
     end
-  end
 
   private
 
