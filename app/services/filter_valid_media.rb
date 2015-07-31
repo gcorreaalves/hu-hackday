@@ -1,11 +1,10 @@
 class FilterValidMedia
   def self.from(array)
+    media_count = Media.all.pluck(:media_ig_id)
+    media_blacklist_count = MediaBlackList.all.pluck(:media_ig_id)
+    media_blocked = media_count | media_blacklist_count
     array.select do |item|
-      media_count = Media.where(media_ig_id: item['id']).count
-      media_blacklist_count = MediaBlackList.where(media_ig_id: item['id']).count
-
-      media_count == 0 &&
-      media_blacklist_count == 0 &&
+      !media_blocked.include?(item['id']) &&
       item['type'] == 'image' &&
       (item['location'] || {}).has_key?('latitude') &&
       (item['location'] || {}).has_key?('longitude')
