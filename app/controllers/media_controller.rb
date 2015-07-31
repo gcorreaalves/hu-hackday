@@ -37,6 +37,17 @@ class MediaController < ApplicationController
     send_data data, :filename=>"photo.jpg"
   end
 
+  def black_list
+    @media_blacklist = MediaBlackList.new(media_ig_id: params[:id])
+    if @media_blacklist.save!
+      @success = true
+    else
+      # client.create_media_comment(@media.media_ig_id, "Uhuu! Sua imagem foi selecionada por nós.\nCopie o link abaixo e cole no seu navegador para concorrer!\n\n#{new_user_registration_path}")
+      @success = false
+    end
+    render :black_list
+  end
+
   def destroy
     Media.destroy(params[:id])
 

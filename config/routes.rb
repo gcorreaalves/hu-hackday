@@ -16,8 +16,11 @@ Rails.application.routes.draw do
   resources :media, only: [:create, :destroy] do
     member do
       get :download
+      post :black_list
     end
   end
 
+  get "/landscape", to: 'home#landscape'
+  
   root to: 'home#index'
 end
