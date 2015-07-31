@@ -11,6 +11,9 @@
     font-size: 14px;
     padding-bottom: 10px;
   }
+  .image-background {
+    background: black;
+  }
   .image{
     background: #fff;
     -webkit-box-shadow: -1px 4px 7px 0px rgba(0, 0, 0, 0.40);
@@ -18,6 +21,7 @@
     box-shadow: -1px 4px 7px 0px rgba(0, 0, 0, 0.40);
     // overflow: hidden;
     margin-bottom: 5px;
+    position: relative;
     img{
       padding: 0;
       cursor: pointer;
@@ -28,6 +32,13 @@
     width: 100%;
     // transition: all .2s ease-in-out;
     // &:hover { transform: scale(1.1); }
+
+    transition: all 0.5s linear;
+    background: black;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }
 .user{
@@ -71,6 +82,13 @@
       font-family: 'Glyphicons Halflings';
       &:before{
         content: '\e020';
+      }
+    }
+    &.download{
+      color: #666666;
+      font-family: 'Glyphicons Halflings';
+      &:before{
+        content: "\e026";
       }
     }
   }

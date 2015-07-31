@@ -18,6 +18,21 @@ class MediaController < ApplicationController
     @media.save!
   end
 
+  def download
+    @media = Media.find(params[:id])
+    require 'open-uri'
+
+    url = @media.url_standard
+    data = open(url).read
+    send_data data, :filename=>"photo.jpg"
+  end
+
+  def destroy
+    Media.destroy(params[:id])
+
+    redirect_to :back
+  end
+
   private
 
   def media_params
