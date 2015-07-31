@@ -14,6 +14,16 @@
       <ul class="nav navbar-nav">
         <%= render 'layouts/navigation_links' %>
       </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle collections-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% collections.each do |collection| %>
+              <li><%= link_to("##{collection.city_slug}", collection_path(id: collection.city_slug)) %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

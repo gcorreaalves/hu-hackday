@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :home, only: :index
-  resources :collections, only: :show
+  resources :collections, only: [:show, :index]
 
   resources :user_instagram, only: [:new, :create]
 
