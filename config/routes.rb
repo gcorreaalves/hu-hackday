@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/landscape", to: 'home#landscape'
+  
   root to: 'home#index'
 end

@@ -1,31 +1,100 @@
-<h2>Passo 1 - Cadastro</h2>
+<div class="landscape">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>No HU Rewards suas fotos valem muito</h1>
 
-<div class='row'>
-  <h4><%= t('.sign_up', :default => "Sign up") %></h4>
-  <%= form_for @user, url: user_instagram_index_path do |f| %>
-    <div class='col-md-2'>
-      <img src='' style="width: 150px; height: 150px">
-    </div>
-    <div class='col-md-4'>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      <div class='col-sm-3'>
+        <%= image_tag 'iphone.jpg', class: "iphone" %>
+      </div>
+      <div class='col-sm-9'>
+        <div class="signup">
+          <h2>Passo 1 - Cadastre-se</h2>
+          <p>É necessário que você faça um pequeno cadastro para que possamos <strong>entrar em contato com você</strong> caso sua foto seja selecionada. Informe um <strong>email para contato</strong> e seu <strong>username no instagram</strong>.</p>
+            <%= form_for @user, url: user_instagram_index_path do |f| %>
+            <div class="row">
+            <div class='col-sm-3'>
+              <div class="form-group">
+                <%= f.label :email, "Email para contato" %>
+                <%= f.email_field :email, autofocus: true, placeholder: "Digite seu email", class: "form-control" %>
+              </div>
+            </div>
+            <div class='col-sm-3'>
+              <div class="form-group">
+                <%= f.label :instagram_username, "Usuário no Instagram" %>
+                <%= f.text_field :instagram_username, placeholder: "Digite seu usuário",class: "form-control" %>
+              </div>
+            </div>
+            <div class='col-sm-3'>
+              <div class="form-group">
+                <%= f.submit t('.sign_up', :default => "Vou Participar"), class: "btn btn-primary button-signup" %>
+              </div>
+            </div>
+            <div class='col-sm-9'>
+              <div class="form-group">
+                <label for="signupOptin" class="inputSignup">
+                  <input name="signupOptin" type="checkbox" class="inputAccept">Li e aceito os termos de uso de imagem.
+                </label>
+              </div>
+           </div>
+            <% end %>
+        </div>
       </div>
     </div>
-    <div class='col-md-4'>
-      <div class="form-group">
-        <%= f.label :instagram_username %>
-        <%= f.text_field :instagram_username, class: "form-control" %>
-      </div>
-    </div>
-    <div class='col-md-2'>
-      <div class="form-group">
-        <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
-      </div>
-    </div>
-  <% end %>
+  </div>
 </div>
 
-<h2>Passo 2 - Hashtag</h2>
+<div class="row">
+  <div class="col-sm-12">
+    <div class='col-sm-3'>
+    </div>
+    <div class='col-sm-9'>
+      <h2>Passo 2 - Hashtag</h2>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="digauhu">
+      <span class="title-hashtag">
+        #DIGAUHUU <br>  
+      </span>
+      <span>
+        Para enviar sua imagem é simples, basta seguir os passos abaixo: <br>
+        - Postar sua foto no Instagram com a <strong>hashtag #digauhuu na legenda</strong>.<br>
+        - No momento da postagem<strong> ativar a geolocalização</strong>.<br>
+        - Seu perfil do Instagram precisa ser <strong>pública</strong>.<br>
+      </span>
+    </div>
+  </div>
+</div>
 
-<h2>Passo 3 - Receba créditos</h2>
+<div class="row credits">
+  <div class="col-sm-12">
+    <div class='col-sm-3'>
+    </div>
+    <div class='col-sm-9'>
+      <h2>Passo 3 - Receba créditos</h2>
+    </div>
+    <div class='col-sm-3'><%= image_tag 'creditos1.jpg' %></div>
+    <div class='col-sm-4'><%= image_tag 'creditos2.jpg' %></div>
+    <div class='col-sm-5'>
+      <span>Se sua foto for aprovada você <strong>receberá R$ 10,00 em créditos</strong> diretamente na sua conta do HU. <br><br>
+      Além disso, suas fotos serão <strong>utilizadas em nossas campanhas e site</strong> com uma marca d`água com seu usuário do Instagram nela. <br><br>
+      É o seu <strong>trabalho sendo divulgado no maior site de viagem da América Latina!</strong></span>
+    </div>
+    <div class="col-sm-12"><%= image_tag 'creditos3.jpg' %></div>
+  </div>
+</div>
+
+<div class="row credits">
+  <div class="col-sm-12">
+    <div class='col-sm-3'>
+    </div>
+    <div class='col-sm-9'>
+      <h2>_______ Créditos _______</h2>
+    </div>
+  </div>
+  <div class="col-sm-12 social">
+    <%= link_to "", "https://pt-br.facebook.com/hotelurbanobr", class: 'facebook' %>
+    <%= link_to "", "https://twitter.com/hotel_urbano", class: 'twitter' %>
+    <%= link_to "", "https://plus.google.com/+HotelUrbano", class: 'googleplus' %>
+  </div>
+</div>
