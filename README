@@ -1,1 +1,7 @@
 Hackday
+
+#requirements
+
+- .env with the info as in .env.example
+- redis
+- postgres

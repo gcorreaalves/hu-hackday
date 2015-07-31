@@ -18,6 +18,7 @@ gem 'letter_opener', group: :development
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'geocoder'
+gem 'redis'
 
 group :development, :test do
   gem 'byebug'
