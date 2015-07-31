@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def client
-    Instagram.client(access_token: ENV['INSTAGRAM_ACCESS_TOKEN'])
+    @instagram_client ||= InstagramClientFactory.get_instance
   end
 
 end
