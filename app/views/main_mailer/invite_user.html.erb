@@ -5,30 +5,55 @@
     <title>Hotel Urbano - Foto Selecionada!</title>
   </head>
   <body>
-    <table border="0" width="600" align="center">
-      <!--HEADER-->
-      <tr>
-        <td>
-
-        </td>
-      </tr>
-      <!--HEADER-->
+    <table border="0" width="580" align="center">
+      <tbody>
+        <!--HEADER-->
+        <tr>
+          <td width="580" height="70" vertical-align="center" bgcolor="#003966" align="center">
+            <img src="http://d2122awg1o49gd.cloudfront.net/images/nova-home/logos/hotelurbano.png" width="190" alt="" align="center">
+          </td>
+        </tr>
+        <!--HEADER-->
 
       <!--BODY-->
       <tr>
-        <td>
-          <%= image_tag(@image, style: 'width:600px') %>
+        <td bgcolor="#fff" width="580" style="margin: 0;padding: 0;">
+          <%= image_tag(@image, style: 'width:580px') %>
         </td>
       </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td bgcolor="#fff" width="580" align="center" style="font-family: Arial;color: #656565;">
+          <div>
+            <b> Parabéns, sua imagem foi selecionada!</b>
+          </div>
+          <br>
+          <div>
+            Você recebeu R$ 10,00 em créditos na sua conta HU.
+          </div>
+          <br>
+          <div>
+            Agora basta escolher sua viagem e utilizar seus créditos.
+          </div>
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td width="580" bgcolor="#fff" align="center">
+          <a href="http://www.hotelurbano.com" border="0" style="border:none;">
+            <%= image_tag "https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/11694057_10207524995670915_765249663521261563_n.jpg?oh=d27a0ad51bd5e551c85c7a014d40d904&oe=560E36D4&__gda__=1447472363_247105f73d0b80e7c19044116c33b6bd", width: 151, height:46 %>
+          </a>
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
       <!--BODY-->
 
       <!--FOOTER-->
       <tr>
-        <td>
-
-        </td>
+        <td width="580" bgcolor="#003966" height="10"></td>
       </tr>
       <!--FOOTER-->
-    </table>
+    </tbody>
+  </table>
   </body>
 </html>
