@@ -13,7 +13,7 @@
               <%= link_to "", media_path(media: item), method: :post, remote: true, class: 'heart' %>
             </div>
             <div class="col-sm-6 text-right">
-              <%= link_to "", "#", class: 'trash' %>
+              <%= link_to "", black_list_medium_path(id: item['id']), method: :post, remote: true, class: 'trash' %>
             </div>
           </div>
         </div>
