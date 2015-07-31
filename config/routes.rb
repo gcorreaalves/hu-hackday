@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :home, only: :index
-  resources :collections, only: :show
+  resources :collections, only: [:show, :index]
 
   resources :user_instagram, only: [:new, :create]
 
@@ -20,5 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/landscape", to: 'home#landscape'
+  
   root to: 'home#index'
 end

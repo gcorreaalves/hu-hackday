@@ -1,0 +1,103 @@
+.landscape {
+  
+  h1 {
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+
+  h2 {
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  p {
+    color: #656565;
+    font-size: 14px;
+  }
+
+  img {
+    margin-right: 60px;
+  }
+
+  .iphone {
+    float: left;
+  }
+
+  .signup {
+  }
+
+  .button-signup {
+    margin-top: 25px;
+    text-transform: uppercase;
+  }
+
+  .new_user {
+    margin-top: 30px;
+    .inputSignup {
+      font-weight: normal;
+    }
+    .inputAccept {
+      margin-right: 10px;
+    }
+
+    label {
+      font-size: 12px;
+    }
+  }
+
+  .digauhu {
+    background: image-url('hashtag.jpg') no-repeat;
+    height: 375px;
+    width: 100%;
+    padding: 95px;
+    color: #003966;
+
+    .title-hashtag {
+      font-size: 40px;
+    }
+
+    span {
+      font-size: 18px;
+    }
+  }
+
+  .credits{
+    img {
+      height: 317px;
+    }
+  }
+
+  .facebook {
+    background: image-url('facebook.jpg') no-repeat;
+    display: block;
+    float: left;
+    height: 35px;
+    margin-right: 10px;
+    width: 35px;
+  }
+
+  .twitter {
+    background: image-url('twitter.jpg') no-repeat;
+    display: block;
+    float: left;
+    height: 35px;
+    margin-right: 10px;
+    width: 35px;
+  }
+
+  .googleplus {
+    background: image-url('googleplus.jpg') no-repeat;
+    display: block;
+    float: left;
+    height: 35px;
+    margin-right: 10px;
+    width: 35px;
+  }
+
+  .social {
+  }
+}
