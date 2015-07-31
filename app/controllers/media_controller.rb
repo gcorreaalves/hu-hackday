@@ -12,7 +12,7 @@ class MediaController < ApplicationController
     @media.url_standard = media_params[:images][:standard_resolution][:url]
     @media.longitute = media_params[:location][:longitude]
     @media.latitude = media_params[:location][:latitude]
-    @media.city = Location.get_city_name(media_params[:location][:latitude], media_params[:location][:longitude])
+    @media.city = GeoLocation.get_city_name(media_params[:location][:latitude], media_params[:location][:longitude])
     @media.created_at_ig = DateTime.strptime(media_params[:created_time],'%s')
 
     @media.save!
