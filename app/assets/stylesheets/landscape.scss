@@ -1,5 +1,5 @@
 .landscape {
-  
+
   h1 {
     font-size: 30px;
     text-align: center;
@@ -12,6 +12,7 @@
     font-size: 22px;
     margin-top: 40px;
     margin-bottom: 40px;
+    text-transform: uppercase;
   }
 
   p {
@@ -69,6 +70,10 @@
     img {
       height: 317px;
     }
+    .social {
+      width: 135px;
+      margin: 0 auto;
+    }
   }
 
   .facebook {
@@ -100,4 +105,9 @@
 
   .social {
   }
+}
+
+.footer-landscape{
+  margin-top:40px;
+  color: #656565
 }

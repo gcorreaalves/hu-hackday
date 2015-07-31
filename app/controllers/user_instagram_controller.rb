@@ -14,7 +14,7 @@ class UserInstagramController < ApplicationController
     generated_password = Devise.friendly_token.first(8)
     @user = User.new(user_params)
     @user.password = generated_password
-    if @user.save
+    if @user.save && params[:sign_up]
       flash[:notice] = "Cadastro efetuado com sucesso!"
       redirect_to root_path
     else

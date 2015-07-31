@@ -31,9 +31,7 @@
             </div>
             <div class='col-sm-9'>
               <div class="form-group">
-                <label for="signupOptin" class="inputSignup">
-                  <input name="signupOptin" type="checkbox" class="inputAccept">Li e aceito os termos de uso de imagem.
-                </label>
+                <%= check_box_tag :sign_up, value: true, class: "inputAccept" %> <span class="inputAccept">Li e aceito os termos de uso de imagem.</span>
               </div>
            </div>
             <% end %>
@@ -54,7 +52,7 @@
   <div class="col-sm-12">
     <div class="digauhu">
       <span class="title-hashtag">
-        #DIGAUHUU <br>  
+        #DIGAUHUU <br>
       </span>
       <span>
         Para enviar sua imagem é simples, basta seguir os passos abaixo: <br>
@@ -86,15 +84,18 @@
 
 <div class="row credits">
   <div class="col-sm-12">
-    <div class='col-sm-3'>
-    </div>
-    <div class='col-sm-9'>
-      <h2>_______ Créditos _______</h2>
-    </div>
-  </div>
-  <div class="col-sm-12 social">
-    <%= link_to "", "https://pt-br.facebook.com/hotelurbanobr", class: 'facebook' %>
-    <%= link_to "", "https://twitter.com/hotel_urbano", class: 'twitter' %>
-    <%= link_to "", "https://plus.google.com/+HotelUrbano", class: 'googleplus' %>
+      <h2 class="text-center">_______ Créditos _______</h2>
+      <div class="social">
+        <%= link_to "", "https://pt-br.facebook.com/hotelurbanobr", class: 'facebook' %>
+        <%= link_to "", "https://twitter.com/hotel_urbano", class: 'twitter' %>
+        <%= link_to "", "https://plus.google.com/+HotelUrbano", class: 'googleplus' %>
+      </div>
   </div>
 </div>
+
+<footer class="footer-landscape">
+  <p class="text-center">
+    <strong>Alguma dúvida?</strong><br>
+    (21) 2108-8845
+  </p>
+</footer>
