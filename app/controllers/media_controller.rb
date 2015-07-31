@@ -13,13 +13,16 @@ class MediaController < ApplicationController
     @media.longitute = media_params[:location][:longitude]
     @media.latitude = media_params[:location][:latitude]
     @media.city = GeoLocation.get_city_name(media_params[:location][:latitude], media_params[:location][:longitude])
+    @media.city_slug = @media.city.parameterize
     @media.created_at_ig = DateTime.strptime(media_params[:created_time],'%s')
 
     @user = User.where(instagram_username: @media.user_name).first
 
-    if @success = (@user && @media.save!)
-      MainMailer.invite_user(@user.email).deliver_later
-    end
+    # if @success = (@user && @media.save!)
+    #   MainMailer.invite_user(@user.email).deliver_later
+    # end
+    @media.save!
+    @success = true
 
     render :create
   end
