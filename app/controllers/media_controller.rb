@@ -13,13 +13,19 @@ class MediaController < ApplicationController
     @media.longitute = media_params[:location][:longitude]
     @media.latitude = media_params[:location][:latitude]
     @media.city = GeoLocation.get_city_name(media_params[:location][:latitude], media_params[:location][:longitude])
+    @media.city_slug = @media.city.parameterize
     @media.created_at_ig = DateTime.strptime(media_params[:created_time],'%s')
 
     @user = User.where(instagram_username: @media.user_name).first
 
     if @user && @media.save!
-      MainMailer.invite_user(@user.email).deliver_later
+      MainMailer.invite_user(@user.email, @media.url_standard).deliver_later
+      @success = true
+    else
+      # client.create_media_comment(@media.media_ig_id, "Uhuu! Sua imagem foi selecionada por nós.\nCopie o link abaixo e cole no seu navegador para concorrer!\n\n#{new_user_registration_path}")
+      @success = false
     end
+    render :create
   end
 
   def download
@@ -29,6 +35,17 @@ class MediaController < ApplicationController
     url = @media.url_standard
     data = open(url).read
     send_data data, :filename=>"photo.jpg"
+  end
+
+  def black_list
+    @media_blacklist = MediaBlackList.new(media_ig_id: params[:id])
+    if @media_blacklist.save!
+      @success = true
+    else
+      # client.create_media_comment(@media.media_ig_id, "Uhuu! Sua imagem foi selecionada por nós.\nCopie o link abaixo e cole no seu navegador para concorrer!\n\n#{new_user_registration_path}")
+      @success = false
+    end
+    render :black_list
   end
 
   def destroy

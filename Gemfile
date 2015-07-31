@@ -18,6 +18,7 @@ gem 'letter_opener', group: :development
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'geocoder'
+gem 'redis'
 
 group :development, :test do
   gem 'byebug'
@@ -50,7 +51,7 @@ group :development, :test do
 end
 group :production do
   gem 'rails_12factor'
-  gem 'unicorn'
+  gem 'puma'
 end
 group :test do
   gem 'capybara'
