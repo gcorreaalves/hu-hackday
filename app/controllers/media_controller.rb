@@ -19,9 +19,8 @@ class MediaController < ApplicationController
 
     if @user && @media.save!
       MainMailer.invite_user(@user.email).deliver_later
-    else
-      # client.create_media_comment(@media.media_ig_id, "Uhuu! Sua imagem foi selecionada por nós.\nCopie o link abaixo e cole no seu navegador para concorrer!\n\n#{new_user_registration_path}")
     end
+  end
 
   def download
     @media = Media.find(params[:id])
