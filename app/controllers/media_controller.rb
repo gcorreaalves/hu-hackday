@@ -3,7 +3,7 @@ class MediaController < ApplicationController
 
   def create
     @media = Media.new
-    
+
     @media.media_ig_id = media_params[:id]
     @media.user_name = media_params[:caption][:from][:username]
     @media.post_url = media_params[:link]
