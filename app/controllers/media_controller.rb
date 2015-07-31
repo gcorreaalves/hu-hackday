@@ -15,8 +15,13 @@ class MediaController < ApplicationController
     @media.city = GeoLocation.get_city_name(media_params[:location][:latitude], media_params[:location][:longitude])
     @media.created_at_ig = DateTime.strptime(media_params[:created_time],'%s')
 
-    @media.save!
-  end
+    @user = User.where(instagram_username: @media.user_name).first
+
+    if @user && @media.save!
+      MainMailer.invite_user(@user.email).deliver_later
+    else
+      # client.create_media_comment(@media.media_ig_id, "Uhuu! Sua imagem foi selecionada por nós.\nCopie o link abaixo e cole no seu navegador para concorrer!\n\n#{new_user_registration_path}")
+    end
 
   def download
     @media = Media.find(params[:id])

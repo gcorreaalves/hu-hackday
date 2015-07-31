@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :home, only: :index
   resources :collections, only: :show
 
+  resources :user_instagram, only: [:new, :create]
+
   resources :oauth do
     collection do
       get :connect

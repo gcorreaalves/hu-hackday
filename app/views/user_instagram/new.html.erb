@@ -1,9 +1,8 @@
-<%= bootstrap_devise_error_messages! %>
 <h2>Passo 1 - Cadastro</h2>
 
 <div class='row'>
   <h4><%= t('.sign_up', :default => "Sign up") %></h4>
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
+  <%= form_for @user, url: user_instagram_index_path do |f| %>
     <div class='col-md-2'>
       <img src='' style="width: 150px; height: 150px">
     </div>
