@@ -1,7 +1,7 @@
 class Media < ActiveRecord::Migration
   def change
     create_table :media do |t|
-      t.integer :media_ig_id, null: false
+      t.string :media_ig_id, null: false
       t.string  :user_name, null: false
       t.string  :post_url, null: false
       t.string  :user_avatar_url, null: false

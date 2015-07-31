@@ -25,10 +25,10 @@
           :'data-image-standard'=> item['images']['standard_resolution']['url']) %>
           <div class="actions row">
             <div class="col-sm-6 text-left">
-              <%= link_to "", media_path, method: :post, remote: true, class: 'icon-heart-o' %>
+              <%= link_to "", media_path(media: item), method: :post, remote: true, class: 'heart' %>
             </div>
             <div class="col-sm-6 text-right">
-              <%= link_to "", "#", class: 'icon-trash-o' %>
+              <%= link_to "", "#", class: 'trash' %>
             </div>
           </div>
         </div>
@@ -58,8 +58,8 @@
           </div>
           <div class="col-sm-6">
             <div class="actions text-right">
-              <%= link_to "", media_path, method: :post, remote: true, class: 'icon-heart-o' %>
-              <%= link_to "", "#", class: 'icon-trash-o' %>
+              <%= link_to "", media_path, method: :post, remote: true, class: 'heart' %>
+              <%= link_to "", "#", class: 'trash' %>
             </div>
           </div>
         </div>
