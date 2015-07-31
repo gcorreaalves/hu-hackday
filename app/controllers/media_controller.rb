@@ -3,7 +3,7 @@ class MediaController < ApplicationController
 
   def create
     @media = Media.new
-    
+
     @media.media_ig_id = media_params[:id]
     @media.user_name = media_params[:caption][:from][:username]
     @media.post_url = media_params[:link]
@@ -15,9 +15,7 @@ class MediaController < ApplicationController
     @media.city = Location.get_city_name(media_params[:location][:latitude], media_params[:location][:longitude])
     @media.created_at_ig = DateTime.strptime(media_params[:created_time],'%s')
 
-    if @media.save!
-      client.create_media_comment(@media.media_ig_id, "Uhuu! Sua imagem foi selecionada por nós.\nCopie o link abaixo e cole no seu navegador para concorrer!\n\n#{new_user_registration_path}")
-    end
+    @media.save!
   end
 
   private

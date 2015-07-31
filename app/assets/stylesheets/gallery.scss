@@ -51,11 +51,27 @@
     padding: 0 10px;
     font-size: 20px;
     text-decoration: none;
-    &.icon-heart-o{
-      color: #ff0000;
+    &:hover{
+      text-decoration: none;
     }
-    &.icon-trash-o{
+    &.heart{
+      font-family: 'Glyphicons Halflings';
+      color: #ff0000;
+      &:before{
+        content: '\e143'
+      }
+      &:hover{
+        &:before{
+          content: '\e005'
+        }
+      }
+    }
+    &.trash{
       color: #666666;
+      font-family: 'Glyphicons Halflings';
+      &:before{
+        content: '\e020';
+      }
     }
   }
 }
