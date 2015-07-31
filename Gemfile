@@ -17,6 +17,7 @@ gem 'therubyracer', :platform=>:ruby
 gem 'letter_opener', group: :development
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'geocoder'
 
 group :development, :test do
   gem 'byebug'
