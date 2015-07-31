@@ -8,7 +8,6 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'dotenv'
 gem 'instagram'
-gem 'rails_12factor', group: :production
 gem 'responders'
 gem 'bootstrap-sass'
 gem 'pg'
