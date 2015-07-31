@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :collections, only: [:show, :index]
 
   resources :user_instagram, only: [:new, :create]
+  get "/campanha", to: 'user_instagram#new'
 
   resources :oauth do
     collection do
@@ -21,6 +22,6 @@ Rails.application.routes.draw do
   end
 
   get "/landscape", to: 'home#landscape'
-  
+
   root to: 'home#index'
 end
