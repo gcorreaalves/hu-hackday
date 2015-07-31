@@ -17,9 +17,11 @@ class MediaController < ApplicationController
 
     @user = User.where(instagram_username: @media.user_name).first
 
-    if @user && @media.save!
+    if @success = (@user && @media.save!)
       MainMailer.invite_user(@user.email).deliver_later
     end
+
+    render :create
   end
 
   def download
