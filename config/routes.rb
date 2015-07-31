@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :home, only: :index
+  resources :collections, only: :show
 
   resources :user_instagram, only: [:new, :create]
 
@@ -12,7 +13,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :media, only: ["create", "destroy"]
+  resources :media, only: [:create, :destroy] do
+    member do
+      get :download
+    end
+  end
 
   root to: 'home#index'
 end

@@ -1,0 +1,39 @@
+
+<h1 class="title">#<%= params[:id] %></h1>
+
+<div class="gallery">
+  <% @items.each do |year, months| %>
+    <% months.each do |month, items| %>
+      <h2> <%= "#{month.upcase} #{year}" %> </h2>
+      <hr class="month-separator">
+      <div class="month row">
+        <% items.each do |item| %>
+          <div class="col-sm-3">
+            <div class="media darken">
+              <div class="image">
+                <div class="image-background">
+                  <%= image_tag(item.url_thumb, class: 'img-thumbnail',
+                  :'data-image-standard'=> item.url_standard) %>
+                </div>
+                <div class="actions row">
+                  <div class="col-sm-6 text-left">
+                      <%= link_to "", download_medium_path(id: item.id), method: :get, class: 'download' %>
+                  </div>
+                  <div class="col-sm-6 text-right">
+                    <%= link_to "", medium_path(id: item.id), class: 'trash', method: :delete, data: { confirm: 'Tem certeza, seu bizonho?' } %>
+                  </div>
+                </div>
+              </div>
+              <div class="user">
+                <%= image_tag(item.user_avatar_url, class: 'img-profile') %>
+                <span class="username"><%= item.user_name %></span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render 'shared/modal', actions: 'shared/modal_collection_actions' %>
