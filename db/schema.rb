@@ -13,43 +13,40 @@
 
 ActiveRecord::Schema.define(version: 20150731064533) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "media", force: :cascade do |t|
-    t.string   "media_ig_id",     null: false
-    t.string   "user_name",       null: false
-    t.string   "post_url",        null: false
-    t.string   "user_avatar_url", null: false
-    t.string   "url_thumb",       null: false
-    t.string   "url_standard",    null: false
-    t.string   "longitute",       null: false
-    t.string   "latitude",        null: false
-    t.string   "city",            null: false
-    t.datetime "created_at_ig",   null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "city_slug"
+    t.string   "media_ig_id",     limit: 255, null: false
+    t.string   "user_name",       limit: 255, null: false
+    t.string   "post_url",        limit: 255, null: false
+    t.string   "user_avatar_url", limit: 255, null: false
+    t.string   "url_thumb",       limit: 255, null: false
+    t.string   "url_standard",    limit: 255, null: false
+    t.string   "longitute",       limit: 255, null: false
+    t.string   "latitude",        limit: 255, null: false
+    t.string   "city",            limit: 255, null: false
+    t.datetime "created_at_ig",               null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "city_slug",       limit: 255
   end
 
   create_table "media_black_lists", force: :cascade do |t|
-    t.string   "media_ig_id", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "media_ig_id", limit: 255, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "instagram_username",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "instagram_username",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
