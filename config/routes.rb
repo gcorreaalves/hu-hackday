@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  get "/painel", to: 'home#index'
   resources :home, only: :index
   resources :collections, only: [:show, :index]
 
   resources :user_instagram, only: [:new, :create]
-  get "/campanha", to: 'user_instagram#new'
 
   resources :oauth do
     collection do
@@ -23,5 +23,5 @@ Rails.application.routes.draw do
 
   get "/landscape", to: 'home#landscape'
 
-  root to: 'home#index'
+  root to: 'user_instagram#new'
 end
